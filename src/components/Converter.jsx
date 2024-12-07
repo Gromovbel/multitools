@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 // Конвертер валют
 const Converter = () => {
   const [currencies, setCurrencies] = useState([]); // Массив всех валют
-  const [fromCurrency, setFromCurrency] = useState('USD'); // Валюта исходная
-  const [toCurrency, setToCurrency] = useState('EUR'); // Валюта, в которую конвертируем
+  const [fromCurrency, setFromCurrency] = useState("USD"); // Валюта исходная
+  const [toCurrency, setToCurrency] = useState("EUR"); // Валюта, в которую конвертируем
   const [amount, setAmount] = useState(1); // Сумма для конвертации
   const [convertedAmount, setConvertedAmount] = useState(null); // Конвертированная сумма
   const [loading, setLoading] = useState(true); // Индикатор загрузки
   const [error, setError] = useState(null); // Ошибки
 
-  const apiKey = '415bf1c5fd54503fa6a8cc96'; // Вставьте свой ключ API
+  const apiKey = "415bf1c5fd54503fa6a8cc96"; // Вставьте свой ключ API
   const apiUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`;
 
   // Загружаем валюты при монтировании компонента
@@ -21,15 +21,15 @@ const Converter = () => {
         const response = await fetch(apiUrl);
         const data = await response.json();
 
-        if (data.result === 'success') {
+        if (data.result === "success") {
           const currencyList = Object.keys(data.conversion_rates); // Извлекаем список валют
           setCurrencies(currencyList); // Устанавливаем валюты
         } else {
           setError(data.error);
         }
       } catch (err) {
-        console.error('Ошибка запроса:', err);
-        setError('Ошибка при загрузке данных');
+        console.error("Ошибка запроса:", err);
+        setError("Ошибка при загрузке данных");
       } finally {
         setLoading(false);
       }
@@ -42,18 +42,20 @@ const Converter = () => {
   const convertCurrency = async (amount) => {
     setLoading(true);
     try {
-      const response = await fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/${fromCurrency}`);
+      const response = await fetch(
+        `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${fromCurrency}`
+      );
       const data = await response.json();
 
-      if (data.result === 'success') {
+      if (data.result === "success") {
         const conversionRate = data.conversion_rates[toCurrency];
         setConvertedAmount((amount * conversionRate).toFixed(2)); // Конвертируем
       } else {
-        setError('Ошибка при конвертации');
+        setError("Ошибка при конвертации");
       }
     } catch (err) {
-      console.error('Ошибка при конвертации:', err);
-      setError('Ошибка при конвертации');
+      console.error("Ошибка при конвертации:", err);
+      setError("Ошибка при конвертации");
     } finally {
       setLoading(false);
     }

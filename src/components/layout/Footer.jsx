@@ -1,7 +1,5 @@
 function Footer(props) {
-    return <div>
-        
-    </div>
-} 
+  return <div></div>;
+}
 
-export {Footer}
+export { Footer };

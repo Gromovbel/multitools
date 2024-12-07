@@ -1,11 +1,11 @@
-import './App.css';
-import { Header } from './components/layout/Header';
-import { Footer } from './components/layout/Footer';
-import { Main } from './components/layout/Main';
-import { useState } from 'react';
+import "./App.css";
+import { Header } from "./components/layout/Header";
+import { Footer } from "./components/layout/Footer";
+import { Main } from "./components/layout/Main";
+import { useState } from "react";
 
 function App() {
-  const [activeComponent, setActiveComponent] = useState('timer');
+  const [activeComponent, setActiveComponent] = useState("timer");
 
   return (
     <>
