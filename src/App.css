@@ -135,3 +135,12 @@ nav .brand-logo {
 .dropdown-content li > a {
   color: #ee6e73;
 }
+
+.info h1 {
+  text-align: center;
+}
+
+.info-text {
+  font-size: 23px;
+  text-align: center;
+}
