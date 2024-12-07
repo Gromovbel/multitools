@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/multitools/static/css/main.776383ed.css",
+    "main.js": "/multitools/static/js/main.616f392c.js",
+    "index.html": "/multitools/index.html",
+    "main.776383ed.css.map": "/multitools/static/css/main.776383ed.css.map",
+    "main.616f392c.js.map": "/multitools/static/js/main.616f392c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.776383ed.css",
+    "static/js/main.616f392c.js"
+  ]
+}
