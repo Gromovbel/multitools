@@ -3,6 +3,8 @@ import { Timer } from "../Timer";
 import { Randomizer } from "../Randomizer";
 import { Calculator } from "../Calculator";
 import { Converter } from "../Converter";
+import { Info } from "../Info";
+import { Contacts } from "../Contacts";
 
 function Main({ activeComponent }) {
   return (
@@ -11,6 +13,8 @@ function Main({ activeComponent }) {
       {activeComponent === "randomizer" && <Randomizer />}
       {activeComponent === "calculator" && <Calculator />}
       {activeComponent === "converter" && <Converter />}
+      {activeComponent === "info" && <Info />}
+      {activeComponent === "contacts" && <Contacts />}
     </div>
   );
 }

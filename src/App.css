@@ -127,3 +127,11 @@ nav .brand-logo {
   border-radius: 20%;
   border: 0.5px rgb(0, 0, 0, 0.4) solid;
 }
+
+.btn {
+  background-color: #ee6e73 !important;
+}
+
+.dropdown-content li > a {
+  color: #ee6e73;
+}

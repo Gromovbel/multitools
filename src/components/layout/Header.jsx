@@ -1,19 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import M from "materialize-css"; // Импорт Materialize
 
 function Header({ setActiveComponent }) {
+  useEffect(() => {
+    // Инициализируем дропдаун после того, как компонент отрендерится
+    const dropdowns = document.querySelectorAll(".dropdown-trigger");
+    M.Dropdown.init(dropdowns);
+    // Возвращаем функцию очистки, чтобы удалить слушателей событий при размонтировании компонента
+    return () => {
+      M.Dropdown.getInstance(dropdowns[0]).destroy();
+    };
+  }, []);
+
   return (
     <div>
       <ul id="dropdown1" className="dropdown-content">
         <li>
-          <a href="#!">one</a>
+          <a onClick={() => setActiveComponent("info")}>Info</a>
         </li>
         <li>
-          <a href="#!">two</a>
+          <a onClick={() => setActiveComponent("contacts")}>Contacts</a>
         </li>
-        <li className="divider"></li>
-        <li>
-          <a href="#!">three</a>
-        </li>
+        <li className="divider" tabIndex="-1"></li>
       </ul>
       <nav>
         <div className="nav-wrapper">
@@ -26,8 +34,12 @@ function Header({ setActiveComponent }) {
             <li onClick={() => setActiveComponent("calculator")}>Calculator</li>
             <li onClick={() => setActiveComponent("converter")}>Converter</li>
             <li>
-              <a className="dropdown-trigger" href="#!" data-target="dropdown1">
-                Help<i className="material-icons right">arrow_drop_down</i>
+              <a
+                className="dropdown-trigger btn"
+                href="#"
+                data-target="dropdown1"
+              >
+                Help
               </a>
             </li>
           </ul>
